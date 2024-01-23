@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap 5 Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="ejemplos_boostrap.js"></script>
+
+    <style>
+        img {
+            width: 100%;
+            height: 500px;
+            border: 5px solid black;
+            border-radius: 15%;
+        }
+
+        img:hover {
+            filter: saturate(180%);
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        h3 {
+            background-color: gold;
+            padding: 9px;
+            border: 2px solid black;
+        }
+
+        p {
+            color: black;
+            font: oblique bold 120% cursive;
+        }
+
+        .container-fluid {
+            background-color: purple;
+        }
+
+        #offcanvasExample {
+            width: 600px;
+        }
+
+        .form-label {
+            font-size: 1.5em;
+        }
+
+        #ButtonNewUser {
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="h1 container-fluid p-5 text-black text-center">
+        <h1> ¡BIENVENIDOS! </h1>
+        <p>esta sera mi pagina</p>
+    </div>
+
+    <!--   esto es para desplegar el video de cr7 -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        </div>
+        <div class="offcanvas-body">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/4O8fCv2hJP0?si=bQH2550V5vRymLGJ"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <!-- menu de arriba de botones y links -->
+    <ul class="pagination pagination-lg justify-content-center col-md-12 bg-secondary">
+        <li class="page-item"><a class="page-link bg-dark text-warning"
+                href="https://aula21-my.sharepoint.com/personal/12089462_alu365_murciaeduca_es/_layouts/15/onedrive.aspx?view=0">one
+                drive</a></li>
+        <li class="page-item"><a class="page-link bg-dark text-warning" href="https://www.google.com/">google</a></li>
+        <li class="page-item"><a class="page-link bg-dark text-warning"
+                href="https://www.youtube.com/?gl=ES&hl=es">youtube</a></li>
+        <li class="page-item"><a class="page-link bg-dark text-warning" href="#DivFormAcceder">formulario</a></li>
+
+        <li class="page-item"> <button class="page-link bg-dark text-warning" id="salir">salir</button></li>
+        <li class="page-item"> <button class="page-link bg-dark text-warning" id="altalibro" style="display: none;">alta de libro</button>
+        <li class="page-item"> <button class="page-link bg-dark text-warning" id="borrarCookieBtn">Borrar
+                Cookie</button>
+        <li class="page-item"><a class="page-link bg-dark text-warning" data-bs-toggle="offcanvas"
+                href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                abrir video cr7 skills
+            </a></li>
+    </ul>
+
+    <!-- esto es el carrusel y sus respectivos botones -->
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <!-- Carousel -->
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                </div>
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="1.jpg" alt="Los Angeles" class="d-block w-100" style="width:100%">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="2.png" alt="Chicago" class="d-block w-100" style="width:100%">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="3.jpeg" alt="New York" class="d-block w-100" style="width:100%">
+                    </div>
+                </div>
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- este es el formulario para nuevos usuarios -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 col-12" id="DivForNewUser"
+                style="display: none; margin-left: 400px; font:  oblique bold 120% cursive;">
+                <h3>formulario nuevos usuarios</h3>
+                <form action="insertusuario.php" method="post">
+                    <div class="mb-6">
+                        <label for="nuevoUsuario" class="form-label">indica tu usuario</label>
+                        <input type="text" class="form-control" id="nuevoUsuario" name="nuevoUsuario">
+                    </div>
+                    <div class="mb-6">
+                        <label for="nuevoPassword" class="form-label">indica tu password</label>
+                        <input type="text" class="form-control" id="nuevoPassword" name="nuevoPassword">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn text-white" style="background-color: purple;">enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- formulario para acceder a la pagina -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 col-12" id="DivFormAcceder">
+                <h3 style="font:oblique bold 120% cursive; font-size: 1.5em;">Realiza el login</h3>
+                <form action="conectar_bbdd_boos.php" method="post">
+                    <div class="mb-3 mt-3">
+                        <label for="ususario" class="form-label">ususario:</label>
+                        <input type="text" class="form-control" id="ususario" placeholder="introduce tu ususario"
+                            name="ususario">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="introduce tu password"
+                            name="pwd">
+                    </div>
+                    <!--  <div class="mb-3">
+                        <div class="col-lg-3 col-sm-6">
+                            <label for="startDate">Start</label>
+                            <input id="startDate" class="form-control" type="date" name="fecha" />
+                            <span id="startDateSelected"></span>
+                        </div>
+                    </div> -->
+                    <button type="submit" class="btn btn-dark">enviar</button>
+                    <button type="button" id="ButtonNewUser" class="btn text-white">añadir nuevo usuario</button>
+                </form>
+            </div>
+
+
+            <div class="col-md-6" id="divtexto" style="display: none;">
+                <h3>que tal pana</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+
+        </div>
+    </div>
+
+ <!--    formulario para la alta de un libro -->
+    <div class="container md-12">
+        <div class="row ">
+            <div class="col-md-6 col-12 " id="divformlibros" style="display: none;">
+                <h3>nuevo libro</h3>
+                <form action="alta_libros.php" method="post">
+                    <div class="mb-3 mt-3">
+                        <label for="isbn" class="form-label">isbn:</label>
+                        <input type="text" class="form-control" id="isbn" placeholder="Enter isbn" name="isbn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">titulo:</label>
+                        <input type="text" class="form-control" id="titulo" placeholder="Enter titulo" name="titulo">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="autor" class="form-label">autor:</label>
+                        <input type="text" class="form-control" id="autor" placeholder="Enter autor" name="autor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="anualidad" class="form-label">anualidad:</label>
+                        <input type="text" class="form-control" id="anualidad" placeholder="Enter anualidad"
+                            name="anualidad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editorial" class="form-label">editorial:</label>
+                        <input type="text" class="form-control" id="editorial" placeholder="Enter editorial"
+                            name="editorial">
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">precio:</label>
+                        <input type="text" class="form-control" id="precio" placeholder="Enter precio" name="precio">
+                    </div>
+                    <button type="submit" class="btn text-white " style="background-color: purple;">enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--    texto abajo del login contenido -->
+    <div class="container md-12">
+        <div class="row ">
+            <div class="col-md-12 col-12">
+                <h2> descripcion de mi pag</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, optio earum consequatur, illum
+                    assumenda necessitatibus ullam itaque architecto error consectetur libero veniam voluptas. Itaque,
+                    totam corporis impedit in laborum id.</p>
+            </div>
+        </div>
+    </div>
+
+    <!--     este es el footer la parte que esta abajo -->
+    <div class="card">
+        <div class="card-header text-black" style="background-color:darkslategray;">
+            ESTE ES EL FOOTER IVAN.SL
+        </div>
+        <div class="card-body" style="background-color:darkgrey;">
+            <blockquote class="blockquote mb-0">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vel obcaecati molestias? In,
+                    magnam
+                    dolores. Perferendis, deserunt magnam unde iste dolore autem illo! Provident eius in
+                    quisquam </p>
+                <footer class="blockquote-footer">que regreses pronto <cite title="Source Title">see you later</cite>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <script>
+        function borrarCookie() {
+            // Reemplaza 'nombre_de_tu_cookie' con el nombre de tu cookie
+            document.cookie = "respuesta=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            alert("Cookie borrada exitosamente.");
+        }
+        let DivFormAcceder = document.getElementById('DivFormAcceder');
+        let divtexto = document.getElementById('divtexto');
+        let buttonnewlibro = document.getElementById('altalibro'); //este es el boton del libro
+        var lacookie = document.cookie.split('=')[1];
+        console.log(lacookie);
+        /*  si ya accedio */
+        if (lacookie == "yes") {
+            divtexto.style.display = 'block'
+            DivFormAcceder.style.display = 'none'
+            buttonnewlibro.style.display='block';
+            // si hubo un error
+        } else if (lacookie == "no") {
+            divtexto.style.display = 'none'
+            divformlibros.style.display = 'none';
+            buttonnewlibro.style.display='none';
+
+        } else if (lacookie == "") {
+            divtexto.style.display = 'none'
+            divformlibros.style.display = 'none';
+            buttonnewlibro.style.display='none';
+        }
+        document.getElementById("borrarCookieBtn").addEventListener("click", borrarCookie);
+
+        function salir(e) {
+            document.cookie = "respuesta=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            alert("usted ha cerrado la session.");
+            divtexto.style.display = 'none'
+            DivFormAcceder.style.display = 'block';
+            buttonnewlibro.style.display='none';
+            //divformlibros.style.display = 'none';
+        }
+        let butoonsalir = document.getElementById('salir');
+        butoonsalir.addEventListener('click', salir);
+
+
+        
+        let divfornewuser = document.getElementById('DivForNewUser');
+        function mostarFormnew(e) {
+            divfornewuser.style.display = 'block';
+            DivFormAcceder.style.display = 'none';
+           // divformlibros.style.display = 'none';
+        }
+        let buttonFoUser = document.getElementById('ButtonNewUser');
+        buttonFoUser.addEventListener('click', mostarFormnew);
+
+        
+        
+        let formnewlibro = document.getElementById('divformlibros')  
+        function mostarFormlibro(e) {
+              formnewlibro.style.display = 'block';
+              divtexto.style.display = 'none';     
+        }
+        buttonnewlibro.addEventListener('click', mostarFormlibro);
+      
+
+    </script>
+  
+</body>
+
+</html>

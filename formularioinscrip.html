@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+    
+
+<body>
+
+    <form  action="tuscript.php" method="post">
+        <h2> formulario de admision</h2>
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" id="name" placeholder="Escribe tu nombre"/>
+        <br>
+        <label for="apellido">apellido:</label>
+        <input type="text" name="apellido" id="apellido" placeholder="escribe aqui"/>
+        <br>
+        <label for="dni">dni:</label>
+        <input type="text" name="dni" id="dni" placeholder="escribe aqui" required />
+        <br>
+        <label for="anno">anno nacimiento:</label>
+        <input type ="number" name="anno" id="anno" placeholder="escribe aqui"/>
+        <br>
+        <label for="direccion">direccion:</label>
+        <input type ="text" name="direccion" id="direccion" placeholder="escribe aqui"/>
+
+        <input type="submit" value="enviardatos">
+        <input type="button" onclick=comprobar() value="enviar">
+    </form>
+
+
+    <p id="parrafo"></p>
+    <button id="ocultar">GUARDAR DATOS</button>
+
+    <script>
+        let buttondeescribir = document.getElementById("ocultar");
+       
+        function comprobar() {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var nombre = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = nombre + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+
+
+            let name = document.getElementById('name').value;
+            let apellidoname = document.getElementById('apellido').value;
+            let dni = document.getElementById('dni').value;
+            let direccion = document.getElementById('direccion').value;
+            let anno = parseInt(document.getElementById('anno').value);
+
+            let ocultar = document.getElementById('ocultar');
+
+            if (name == '') {
+                alert('nombre esta vacio')
+                name = null;
+            }
+            if (apellidoname == '') {
+                alert('apellidoname esta vacio')
+                apellidoname = null;
+            }
+            if (dni == '') {
+                alert('dni esta vacio')
+                dni = null;
+            }
+            if (anno == '') {
+                alert('anno esta vacio')
+                anno = null;
+            }
+            if (direccion == '') {
+                alert('direccion esta vacio')
+                anno = null;
+            }
+            if (name != null && apellidoname != null && dni != null && anno != null && direccion != null) {
+                let p = document.getElementById('parrafo');
+
+                let respuesta = 2024 - anno;
+                if (respuesta >= 18) {
+                    p.innerHTML = 'ya eres un nuevo sub <br>';
+                    ocultar.style.display = 'block';
+
+                } else {
+                    p.innerHTML = 'eres menor de edad , no puedes';
+                    ocultar.style.display = 'none';
+                }
+            }
+            guardarencookie(name, apellidoname, dni, anno, direccion)
+        }
+
+
+
+        function guardarencookie(name, apellidoname, dni, anno, direccion) {
+            let p = document.getElementById('parrafo');
+
+            document.cookie = '"nombre=' + name + '"';
+            document.cookie = '"apellido=' + apellidoname + '"';
+            document.cookie = '"dni=' + dni + '"';
+            document.cookie = '"anno=' + anno + '"';
+            document.cookie = '"direccion=' + direccion + '"';
+
+            let arraycookie = document.cookie.split(";");
+
+            for (let cook of arraycookie) {
+                p.innerHTML += cook + "<br>";
+            }
+
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
